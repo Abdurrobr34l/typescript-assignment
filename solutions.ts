@@ -6,6 +6,7 @@ const multiplyValue = (value: number, multiplier?: number): number => {
   }
 };
 
+
 const processInput = (value: string | number | boolean): string | number => {
   if (typeof value === "string") {
     return value.toLowerCase().trim();
@@ -19,27 +20,24 @@ const processInput = (value: string | number | boolean): string | number => {
   return "Inactive";
 };
 
+
 const formatCoordinate = (data: readonly [number, number, string]): string => {
   return `Location: ${data[2]} (${data[0]}, ${data[1]})`;
 };
+
 
 const concatenateArrays = <T>(...arr: T[][]): T[] => {
   let newArr = [...arr].flat();
   return newArr;
 };
 
+
 interface Course {
   title: string;
   students: number;
   isPublished: boolean;
 }
-const courses = [
-  { title: "TypeScript Mastery", students: 120, isPublished: true },
-  { title: "Draft Course", students: 200, isPublished: false },
-  { title: "Basic HTML", students: 45, isPublished: true },
-  { title: "Next.js Pro", students: 85, isPublished: true },
-];
-const getPopularCourses = (courses: Course[], minStudents: number) => {
+const getPopularCourses = (courses: Course[], minStudents: number): Course[] => {
   return courses.filter((course) => {
     let findCourse = course.isPublished === true;
     let findStudent = course.students >= minStudents;
@@ -48,14 +46,49 @@ const getPopularCourses = (courses: Course[], minStudents: number) => {
   });
 };
 
+
 const pluckValues = <T, K extends keyof T>(items: T[], key: K): T[K][] => {
   return items.map((item) => {
     return item[key];
   });
 };
-const users = [
-  { id: 1, name: "Rakib", role: "Admin" },
-  { id: 2, name: "Sadia", role: "Editor" },
-  { id: 3, name: "Tariq", role: "Subscriber" },
-];
 
+
+class Employee {
+  protected name: string;
+  private baseSalary: number;
+
+  constructor(name: string, baseSalary: number) {
+    this.name = name;
+    this.baseSalary = baseSalary;
+  }
+
+  getDetails(): string {
+    return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
+  }
+}
+class Manager extends Employee {
+  private department: string;
+
+  constructor(name: string, baseSalary: number, department: string) {
+    super(name, baseSalary);
+    this.department = department;
+  }
+
+  getRoleInfo(): string {
+    return `Manager of ${this.department}: ${this.name}`;
+  }
+}
+
+
+async function validateAgeAsync(age: number): Promise<string> {
+  return new Promise((resolve, reject) => {
+    if (age >= 18) {
+      setTimeout(() => {
+        resolve("Access Granted");
+      }, 1000);
+    } else {
+      reject(new Error("Access Denied: Must be 18 or older"));
+    }
+  });
+}
