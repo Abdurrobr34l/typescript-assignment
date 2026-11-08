@@ -47,3 +47,15 @@ const getPopularCourses = (courses: Course[], minStudents: number) => {
     return findCourse && findStudent;
   });
 };
+
+const pluckValues = <T, K extends keyof T>(items: T[], key: K): T[K][] => {
+  return items.map((item) => {
+    return item[key];
+  });
+};
+const users = [
+  { id: 1, name: "Rakib", role: "Admin" },
+  { id: 2, name: "Sadia", role: "Editor" },
+  { id: 3, name: "Tariq", role: "Subscriber" },
+];
+
