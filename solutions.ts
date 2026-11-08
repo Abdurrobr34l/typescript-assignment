@@ -1,13 +1,23 @@
-let cont: string;
-cont = "hero";
+const multiplyValue = (value: number, multiplier?: number): number => {
+  if (multiplier === undefined) {
+    return value * 2;
+  } else {
+    return value * multiplier;
+  }
+};
 
-let hero: number;
-hero = 45;
 
-let last: boolean;
-last = true;
+const processInput = (value: string | number | boolean): string | number => {
+  if (typeof value === "string") {
+    return value.toLowerCase().trim();
+  } else if (typeof value === "number") {
+    return value * 10;
+  } else if (typeof value === "boolean") {
+    if (value === true) {
+      return "Active";
+    }
+  }
+  return "Inactive";
+};
 
-let newss : number;
-newss = 54;
 
-console.log(cont, hero, last, newss);
