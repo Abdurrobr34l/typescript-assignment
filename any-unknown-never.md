@@ -27,7 +27,6 @@ const Employeee:name = {
 
 console.log(Employeee);
 
-
 ------------ Below example show why any is bad
 
 if (typeof Employeee.name === "string") {
