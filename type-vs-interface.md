@@ -52,4 +52,4 @@ console.log(details); --> { name: 'Rob', result: 'Pass' }
 ```
 
 ### Conclusion: 
-Use Interface for defining object shape because we cannot do union(directly), primitive and tuple. We can do intersection in both Type and Interface. So use Type for most of the things where we cannot use Interface.
+Use Interface for defining object shape because we cannot do union(directly), primitive and tuple. We can do intersection in both Type and Interface. So use Type for most of the things where we cannot use Interface. Both are useful, and the choice depends on what you need to define.
